@@ -7,7 +7,7 @@ export default function contact() {
 				<h1>Contact Me</h1>
 				<span>Send To Me</span>
 			</div>
-			<div className="contact-catagory">
+			<div className="contact-category">
 				<div className="left-section" data-aos="fade-right">
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13651.431412873415!2d29.91622705!3d31.19695445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1635769765352!5m2!1sen!2seg"

@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import React from "react";
+import Aos from "aos";
 // Pages
 import Header from "./components/header";
 import Home from "./components/home";
@@ -12,7 +12,10 @@ import Footer from "./components/footer";
 
 // Addition
 import Scoller from "./components/scroller";
-import Preloader from "./components/preloader.jsx";
+import Preloader from "./components/preloader";
+import "aos/dist/aos.css";
+
+Aos.init({ delay: 150, offset: 0, mirror: true });
 
 function App() {
 	setTimeout(() => {
@@ -52,7 +55,7 @@ function App() {
 			<Scoller />
 
 			{/* ========================================= Pre-loader ========================================= */}
-			{/* <Preloader /> */}
+			<Preloader />
 		</>
 	);
 }

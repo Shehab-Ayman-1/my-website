@@ -1,5 +1,6 @@
 @use "./variables" as *;
-@use "./mixins";
+@use "./mixins" as *;
+
 // Default Elements Style
 a {
 	color: get(black);
@@ -20,7 +21,6 @@ i {
 	}
 	&[data-empty] {
 		color: get(white);
-		-webkit-text-stroke: 1.5px get(black);
 	}
 }
 

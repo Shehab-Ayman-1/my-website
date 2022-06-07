@@ -1,6 +1,6 @@
 @use "./variables" as *;
-@use "./global" as *;
 @use "./mixins" as *;
+@use "./global" as *;
 
 // Basic Classes
 .mybtn {
@@ -38,31 +38,39 @@
 	margin-bottom: get(m5);
 	h1 {
 		font-size: 4rem;
+		@include width(md) {
+			font-size: 3rem;
+		}
+		@include width(sm) {
+			font-size: 2.5rem;
+		}
 	}
 	span {
 		font-size: 2rem;
 		position: relative;
-		&::before {
-			content: "";
+		@include width(sm) {
+			font-size: 1rem;
+		}
+		&::before,
+		&::after {
+			@include absolute(tl, 50%, -60px);
 			background: get(white);
+			content: "";
 			width: 50px;
 			height: 3px;
-			position: absolute;
-			top: 50%;
-			left: -60px;
+			@include width(sm) {
+				width: 35px;
+				height: 1.5px;
+				left: -45px;
+			}
 		}
 		&::after {
-			content: "";
-			background: get(white);
-			width: 50px;
-			height: 3px;
-			position: absolute;
-			top: 50%;
+			left: initial;
 			right: -60px;
+			@include width(sm) {
+				right: -45px;
+			}
 		}
-	}
-	@include width(sm) {
-		font-size: 2.5rem;
 	}
 }
 
@@ -81,11 +89,20 @@
 .swiper-pagination {
 	bottom: -5px !important;
 	.swiper-pagination-bullet-active {
+		background: get(main-color) !important;
 		width: 20px;
 		border-radius: 4px;
 	}
 	.swiper-pagination-bullet {
-		background: get(main-color);
+		background: get(white);
+	}
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	color: get(white) !important;
+	@include width(sm) {
+		display: none !important;
 	}
 }
 

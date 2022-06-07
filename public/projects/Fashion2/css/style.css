@@ -1,0 +1,706 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+* {
+	font-family: "Roboto", sans-serif;
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+	box-sizing: border-box;
+	text-transform: capitalize;
+	text-decoration: none;
+	transition: 0.2s linear;
+}
+:root {
+	--orange: #ff9500;
+	--white: #fff;
+	--black: #333;
+	--light-bg: #555;
+	--border: 1px solid rgba(0, 0, 0, 0.5);
+	--box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+body {
+	background: #eee;
+}
+html {
+	overflow-x: hidden;
+	scroll-padding-top: 7.5rem;
+	scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+	width: 1rem;
+}
+html::-webkit-scrollbar-track {
+	background: var(--white);
+}
+html::-webkit-scrollbar-thumb {
+	background: var(--black);
+	border-radius: 5rem;
+}
+::selection {
+	background: var(--black);
+}
+body.Active ::selection {
+	background: var(--light-bg);
+}
+
+/* ============================================ FrameWork ============================================ */
+section {
+	padding: 3rem 9%;
+}
+span {
+	color: var(--orange);
+}
+.Style {
+	background: var(--black);
+	color: var(--white);
+	padding: 10px 45px;
+	margin: 20px 0;
+	font-size: 23px;
+	border-radius: 30px;
+	cursor: pointer;
+}
+.Style:hover {
+	background: var(--orange);
+}
+.fa {
+	background: var(--black);
+	color: var(--white);
+	padding: 15px;
+	margin: 0 5px;
+	font-size: 25px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.fa:hover {
+	background: var(--orange);
+	transform: rotate(360deg);
+}
+.title h1 {
+	color: var(--black);
+	text-align: center;
+	font-size: 40px;
+	padding: 10px 0;
+	border-bottom: var(--border);
+}
+.swiper-slide:hover img {
+	transform: scale(1.1);
+}
+@media (max-width: 650px) {
+	.fa {
+		padding: 12px;
+		margin: 0 5px;
+		font-size: 18px;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+}
+
+/* ============================================ Active ============================================== */
+body.Active {
+	--orange: #ff9500;
+	--white: #111;
+	--black: #fff;
+	--light-bg: #555;
+	--border: 1px solid rgba(255, 255, 255, 0.5);
+	--box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+	background: #222;
+}
+body.Active header .logo img {
+	filter: invert(1);
+}
+header.Active {
+	background: var(--white);
+	box-shadow: var(--box-shadow);
+}
+header .Icons.Active {
+	background-color: var(--light-bg);
+}
+header nav.Active {
+	clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+}
+header .SearchForm.Active {
+	box-shadow: var(--box-shadow);
+	clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+}
+header .UserForm.Active {
+	clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%);
+}
+
+/* ============================================ Header ============================================== */
+header {
+	background: transparent;
+	color: var(--black);
+	width: 100%;
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+header nav {
+	background: var(--white);
+	width: 30%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 30px;
+	text-align: center;
+	overflow: auto;
+	z-index: 10000;
+	clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%);
+}
+header nav .Content img {
+	width: 150px;
+	height: 150px;
+	margin: auto;
+	border-radius: 50%;
+}
+header nav .Content h2 {
+	color: var(--black);
+	text-align: center;
+	padding: 20px;
+}
+header nav .fa {
+	background: none;
+	color: var(--black);
+	font-size: 40px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+header nav a {
+	color: var(--black);
+	padding: 20px;
+	font-size: 25px;
+	display: block;
+	border-bottom: var(--border);
+}
+header .logo {
+	display: flex;
+	align-items: center;
+}
+header .logo img {
+	width: 3rem;
+}
+header .logo h3 {
+	padding-left: 20px;
+	color: var(--black);
+	font-size: 35px;
+}
+
+/* ================= Forms ================= */
+header .SearchForm {
+	background: var(--black);
+	color: var(--white);
+	width: 50%;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	top: 105%;
+	right: 5%;
+	border-radius: 20px;
+	overflow: hidden;
+	clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%);
+}
+header .SearchForm input {
+	background: var(--black);
+	color: var(--white);
+	width: 100%;
+	font-size: 25px;
+	padding: 15px;
+}
+header .SearchForm label {
+	color: var(--white);
+	background: none;
+	font-size: 25px;
+	cursor: pointer;
+}
+header .UserForm {
+	background: var(--white);
+	width: 30rem;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	clip-path: polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%);
+}
+header .UserForm form {
+	color: var(--black);
+	width: 100%;
+	padding: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+header .UserForm .fa {
+	background: none;
+	color: var(--black);
+	font-size: 40px;
+	position: absolute;
+	top: 0px;
+	right: 20px;
+}
+header .UserForm form h1 {
+	text-align: center;
+}
+header .UserForm form input {
+	background: var(--light-bg);
+	color: var(--white);
+	width: 100%;
+	padding: 15px;
+	font-size: 25px;
+	display: block;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+header .UserForm form label {
+	color: var(--orange);
+	font-size: 25px;
+	font-weight: bold;
+}
+header .UserForm form .Check {
+	display: flex;
+	width: fit-content;
+	margin: 10px 0;
+}
+header .UserForm form input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	font-size: 0;
+	border-radius: 0;
+	margin-bottom: 20px;
+	display: inline-block;
+	cursor: pointer;
+}
+header .UserForm form input[type="checkbox"] + label {
+	padding-left: 20px;
+	display: inline-block;
+	cursor: pointer;
+}
+header .UserForm form p {
+	font-size: 23px;
+	font-weight: bold;
+}
+header .UserForm form p a {
+	color: var(--orange);
+	padding-left: 10px;
+	text-decoration: underline;
+}
+/* ================= Effects =============== */
+header nav a:hover {
+	background: var(--orange);
+	color: var(--white);
+}
+header nav .fa:hover {
+	background: none;
+	color: var(--orange);
+	transform: none;
+}
+header .SearchForm label:hover {
+	background: none;
+	color: var(--orange);
+	transform: none;
+}
+
+header .UserForm .fa:hover {
+	background: none;
+	color: var(--orange);
+	transform: none;
+}
+@media (max-width: 800px) {
+	header .SearchForm {
+		width: 90%;
+	}
+	header nav {
+		width: 100%;
+	}
+	header .UserForm {
+		width: 100%;
+	}
+}
+@media (max-width: 560px) {
+	header .Icons {
+		background-color: transparent;
+		width: 100%;
+		height: fit-content;
+		text-align: center;
+		padding: 20px;
+		position: absolute;
+		top: 100%;
+	}
+}
+
+/* ============================================ Home ================================================ */
+.Home {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	gap: 1rem;
+	margin-top: 20px;
+}
+.Home .left {
+	line-height: 1.5;
+}
+.Home .left span {
+	font-size: 40px;
+	font-weight: bold;
+}
+.Home .left h1 {
+	color: var(--black);
+	font-size: 80px;
+}
+.Home .right {
+	padding: 20px;
+	text-align: right;
+}
+.Home .right img {
+	max-width: 80%;
+}
+@media (max-width: 800px) {
+	.Home .left span {
+		font-size: 30px;
+	}
+	.Home .left h1 {
+		font-size: 50px;
+	}
+}
+
+/* ============================================ Producrs ============================================ */
+.Products .Catagory {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	gap: 1rem;
+	margin-top: 30px;
+}
+.Products .Catagory .box {
+	position: relative;
+	height: 15rem;
+	overflow: hidden;
+}
+.Products .Catagory .box .img img {
+	height: 100%;
+}
+.Products .Catagory .box img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+.Products .Catagory .box .Content {
+	color: var(--light-bg);
+	margin: 70px 20px 20px;
+	font-size: large;
+	line-height: 2;
+}
+.Products .Catagory .box:hover img {
+	transform: scale(1.2);
+}
+/* ======================= */
+.Products .Galory .title {
+	margin: 50px 20px 20px;
+}
+.Products .Galory .Produc .box {
+	background: var(--white);
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+.Products .Galory .Produc .box .img-Icons {
+	height: 25rem;
+	overflow: hidden;
+}
+.Products .Galory .Produc .box .img-Icons img {
+	height: 100%;
+}
+.Products .Galory .Produc .box .img-Icons .Icons {
+	position: absolute;
+	top: 10px;
+	right: -100px;
+}
+.Products .Galory .Produc .box .img-Icons .Icons .fa {
+	display: block;
+	margin: 20px 0;
+}
+.Products .Galory .Produc .box .Content {
+	line-height: 2;
+	padding-top: 10px;
+}
+.Products .Galory .Produc .box .Content .Stars {
+	padding-top: 10px;
+	border-top: var(--border);
+}
+.Products .Galory .Produc .box .Content .Stars .fa {
+	background: none;
+	color: var(--orange);
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+}
+.Products .Galory .Produc .box .Content h3 {
+	color: var(--black);
+	font-size: 25px;
+}
+.Products .Galory .Produc .box .Content h3 span {
+	text-decoration: line-through;
+	font-size: 22px;
+}
+.Products .Galory .Produc .box:hover .img-Icons .Icons {
+	right: 10px;
+}
+/* ========================= */
+.Products .Galory .swiper-slide {
+	opacity: 0.5;
+	transform: scale(0.9);
+	border-top-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	box-shadow: var(--box-shadow);
+}
+.Products .Galory .swiper-slide-active {
+	opacity: 1;
+	transform: scale(1);
+}
+.Products .Catagory .swiper-slide {
+	opacity: 0.5;
+	transform: scale(0.9);
+	border-top-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	box-shadow: var(--box-shadow);
+}
+.Products .Catagory .swiper-slide-active {
+	opacity: 1;
+	transform: scale(1);
+}
+/* ============================================ Featured ============================================ */
+.Featured .Catagory {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	gap: 1rem;
+	margin-top: 30px;
+}
+.Featured .Catagory .box {
+	background: var(--white);
+}
+.Featured .Catagory .box .img {
+	display: flex;
+	overflow: hidden;
+	height: 20rem;
+	padding-bottom: 20px;
+}
+.Featured .Catagory .box .img .Small {
+	width: 30%;
+	height: 100%;
+	padding: 0 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+.Featured .Catagory .box .img .Small img {
+	width: 70%;
+	padding: 10px;
+	cursor: pointer;
+	border: var(--border);
+	opacity: 0.5;
+}
+.Featured .Catagory .box .img .Big {
+	width: 70%;
+	height: 100%;
+	padding: 10px 10px;
+	position: relative;
+}
+.Featured .Catagory .box .img .Big img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	opacity: 0;
+}
+.Featured .Catagory .box .Content {
+	color: var(--black);
+	padding-top: 20px;
+	text-align: center;
+	line-height: 2;
+	border-top: var(--border);
+}
+.Featured .Catagory .box .Content .Stars .fa {
+	background: none;
+	color: var(--orange);
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+}
+.Featured .Catagory .box .Content p {
+	color: var(--light-bg);
+	text-align: justify;
+	line-height: 1.2;
+	padding: 5px 20px;
+}
+.Featured .Catagory .box .Content h3 {
+	font-size: 30px;
+}
+.Featured .Catagory .box .Content h3 span {
+	font-size: 23px;
+	text-decoration: line-through;
+}
+.Featured .Catagory .box .img .Big img:nth-child(1) {
+	opacity: 1;
+}
+.Featured .Catagory .box .img .Small img:nth-child(1) {
+	opacity: 1;
+}
+.Featured .Catagory .box .img .Small img:hover {
+	background: var(--orange);
+}
+
+/* ============================================ Deal ================================================ */
+.Deal .Catagory {
+	background: var(--white);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	gap: 1rem;
+	padding: 20px;
+	margin-top: 20px;
+}
+.Deal .Catagory .right img {
+	width: 100%;
+	height: 100%;
+}
+.Deal .Catagory .left {
+	color: var(--black);
+	text-align: center;
+	font-size: 30px;
+	line-height: 2;
+}
+.Deal .Catagory .left .Time {
+	color: var(--orange);
+	display: flex;
+	justify-content: space-evenly;
+}
+.Deal .Catagory .left .Time .box {
+	padding: 10px;
+	font-size: 25px;
+}
+@media (max-width: 500px) {
+	.Deal .Catagory .left .Time .box {
+		padding: 5px;
+		font-size: 20px;
+	}
+}
+@media (max-width: 420px) {
+	.Deal .Catagory .left {
+		text-align: left;
+		font-size: 20px;
+	}
+	.Deal .Catagory .left .Time {
+		justify-content: flex-start;
+	}
+	.Deal .Catagory .left .Time .box {
+		font-size: 18px;
+	}
+}
+@media (max-width: 380px) {
+	.Deal .Catagory .left .Time .box {
+		font-size: 13px;
+	}
+}
+
+/* ============================================ Reviews ============================================= */
+.Reviews .Catagory {
+	margin-top: 20px;
+}
+.Reviews .Catagory .box {
+	background: var(--white);
+	color: var(--black);
+	padding: 20px;
+}
+.Reviews .Catagory .box .Top {
+	color: var(--black);
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: var(--border);
+}
+.Reviews .Catagory .box .Top img {
+	width: 80px;
+	height: 80px;
+	margin-right: 20px;
+	border-radius: 50%;
+}
+.Reviews .Catagory .box .Down p {
+	color: var(--light-bg);
+	line-height: 1.5;
+}
+.Reviews .Catagory .box .Down .fa {
+	background: none;
+	color: var(--orange);
+	font-size: 20px;
+	padding: 0;
+	margin: 0;
+}
+/* ========================= */
+.Reviews .Catagory .swiper-slide {
+	opacity: 0.5;
+	transform: scale(0.9);
+	border-top-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	box-shadow: var(--box-shadow);
+}
+.Reviews .Catagory .swiper-slide-active {
+	opacity: 1;
+	transform: scale(1);
+}
+/* ============================================ Footer ============================================== */
+footer {
+	background: var(--white);
+	padding: 3rem 9% 0;
+}
+footer .Catagory {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+	gap: 1rem;
+}
+footer .Catagory .box {
+	background: var(--white);
+	color: var(--black);
+}
+footer .Catagory .box .row {
+	width: fit-content;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+footer .Catagory .box .row a {
+	color: var(--black);
+	padding-left: 15px;
+}
+footer .Catagory .box .row .fa {
+	background: none;
+	color: var(--orange);
+	font-size: 25px;
+	padding: 0;
+	margin: 0;
+	transform: none;
+}
+footer .Copy {
+	margin-top: 20px;
+	padding: 20px;
+	border-top: var(--border);
+}
+footer .Copy h2 {
+	color: var(--black);
+	text-align: center;
+}
+footer .Catagory .box .row:hover a {
+	padding-left: 30px;
+	color: var(--orange);
+}
+footer .Catagory .box .row:hover .fa {
+	color: var(--black);
+}

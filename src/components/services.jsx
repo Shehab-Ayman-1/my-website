@@ -7,7 +7,7 @@ export default function services() {
 				<h1>My Services</h1>
 				<span>What I Provide</span>
 			</div>
-			<div className="services-catagory" data-aos="fade-up">
+			<div className="services-category" data-aos="fade-up">
 				<div className="serve-box" data-aos="fade-down" data-aos-delay="250">
 					<i className="fa fa-paint-brush"></i>
 					<h2 className="serve-header">Web Design</h2>

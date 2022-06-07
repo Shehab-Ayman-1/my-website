@@ -1,49 +1,9 @@
-@use "./helpers/index" as *;
-
-@keyframes UpDown {
-	0%,
-	100% {
-		-webkit-transform: translatey(5px);
-		transform: translatey(5px);
-	}
-	50% {
-		-webkit-transform: translatey(-5px);
-		transform: translatey(-5px);
-	}
-}
-
-/* =============================================== Public ============================================== */
-section {
-	padding: 3rem 9%;
-}
-span {
-	color: get(main-color);
-}
-
-.pre-loader {
-	background: #000;
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 999999999999999999;
-	img {
-		width: 50vmin;
-	}
-}
+@use "./helpers/" as *;
 
 /* ============================================= Header ============================================== */
 header {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	position: fixed;
-	top: 0;
-	left: 0;
+	@include flex(space-between, center);
+	@include fixed(tl, 0, 0);
 	background: transparent;
 	color: get(white);
 	width: 100vw;
@@ -55,22 +15,38 @@ header {
 	}
 	.fa {
 		display: none;
+		@include width(xmd) {
+			display: inline-block;
+		}
+		@include width(sm) {
+			font-size: 14px;
+		}
 	}
 	.logo {
-		display: flex;
-		justify-content: auto;
-		align-items: center;
+		@include flex(auto, center);
 		gap: 1rem;
 		img {
 			width: 30px;
+			@include width(sm) {
+				width: 20px;
+			}
 		}
 		h2 {
 			color: get(white);
 			font-size: 2.5rem;
 			margin-bottom: 0;
+			@include width(sm) {
+				font-size: 2rem;
+			}
 		}
 	}
 	nav {
+		@include width(xmd) {
+			@include absolute(tl, 100%, auto);
+			background: get(dark-bg);
+			width: 100%;
+			clip-path: polygon(50% 0%, 100% 0, 100% 0, 0 0, 0 0);
+		}
 		&.Active {
 			clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 0);
 		}
@@ -79,6 +55,11 @@ header {
 			font-size: 1.6rem;
 			padding: 0 20px;
 			position: relative;
+			@include width(xmd) {
+				width: fit-content;
+				margin: 20px 50px;
+				display: block;
+			}
 			&.Active {
 				color: get(main-color);
 				font-weight: bold;
@@ -95,17 +76,13 @@ header {
 				}
 			}
 			&::before {
-				position: absolute;
-				bottom: -10px;
-				left: 0;
-				content: "";
+				@include absolute(br, -10px, 0);
 				background: crimson;
-				width: 0%;
+				content: "";
+				width: 0;
 				height: 2px;
 				display: block;
-				position: absolute;
 				opacity: 0;
-				-webkit-transition: 0.5s ease-in-out;
 				transition: 0.5s ease-in-out;
 			}
 		}
@@ -114,23 +91,34 @@ header {
 
 /* ============================================= Home ================================================ */
 .Home {
-	display: flex;
-	justify-content: auto;
-	align-items: center;
-	background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(220, 20, 60, 0.1)), url(../images/Home.png);
-	background-position: center;
-	background-size: cover;
+	@include flex(auto, center);
+	@include linear-background("../images/Home.png", (rgba(0, 0, 0, 0.1), rgba(220, 20, 60, 0.1)), cover, initial);
 	width: 100vw;
 	min-height: 100vh;
 	position: relative;
+	@include width(xsm) {
+		@include flex(center, center);
+	}
 	.info {
 		.info-header {
 			color: get(light-text);
 			font-size: 2.3rem;
+			@include width(md) {
+				font-size: 2rem;
+			}
+			@include width(sm) {
+				font-size: 1.5rem;
+			}
 		}
 		.info-name {
 			color: get(white);
 			font-size: 6rem;
+			@include width(md) {
+				font-size: 5rem;
+			}
+			@include width(sm) {
+				font-size: 4rem;
+			}
 		}
 		.info-jobs {
 			@extend .info-header;
@@ -138,6 +126,10 @@ header {
 		}
 		.mybtn {
 			background-color: get(main-color);
+			@include width(sm) {
+				padding: 5px 25px;
+				font-size: 1.4rem;
+			}
 			&:hover {
 				background-color: get(white);
 				color: get(black);
@@ -149,28 +141,42 @@ header {
 /* ============================================= About =============================================== */
 .About {
 	background: get(white);
-	.about-Catagory {
-		@include grid(20rem);
+	.about-category {
+		@include flex(space-between, center);
+		@include width(md) {
+			flex-direction: column;
+		}
 		.left-section {
-			@include flex(space-between, center);
+			width: 40%;
+			text-align: left;
+			@include width(md) {
+				width: 80%;
+			}
 			img {
 				width: 100%;
+				display: block;
 			}
 		}
 		.right-section {
 			color: get(dark-text);
-			display: flex;
-			justify-content: auto;
-			align-items: center;
-			flex-direction: column;
+			width: 60%;
 			line-height: 2;
+			@include width(md) {
+				width: 100%;
+			}
 			.about-content {
 				.content-header {
 					font-size: 3rem;
+					@include width(sm) {
+						font-size: 2rem;
+					}
 				}
 				.content-description {
 					color: get(light-text);
 					font-size: 1.5rem;
+					@include width(sm) {
+						font-size: 1.2rem;
+					}
 				}
 			}
 		}
@@ -180,21 +186,32 @@ header {
 /* ============================================ Services ============================================= */
 .Services {
 	background: get(dark-bg);
-	padding-block: get(p6);
-	.services-catagory {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	.services-category {
+		@include flex(space-between, center);
 		gap: 2rem;
+		flex-wrap: wrap;
 		.serve-box {
 			background: #333;
 			color: get(white);
+			width: calc((100% / 3) - 2rem);
+			min-height: 330px;
 			text-align: center;
 			padding: 50px 20px;
 			cursor: pointer;
 			box-shadow: get(box-shadow);
 			transition: 0.5s ease-in-out !important;
+			@include width(xmd) {
+				width: calc((100% / 2) - 2rem);
+			}
+			@include width(md) {
+				width: calc(100%);
+			}
 			&:hover {
 				background: #444;
+				transform: translateY(5px) !important;
+				i {
+					color: get(white);
+				}
 			}
 			.serve-header {
 				font-size: 2.5rem;
@@ -205,12 +222,9 @@ header {
 				font-size: 1.5rem;
 			}
 			i {
-				font-size: 50px;
 				color: get(main-color);
+				font-size: 50px;
 				padding-bottom: 20px;
-				&:hover {
-					color: get(white);
-				}
 			}
 		}
 	}
@@ -219,18 +233,32 @@ header {
 /* ============================================ Skills =============================================== */
 .Skills {
 	background: get(white);
-	.skills-catagory {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+	.skills-category {
+		@include flex(space-between, center);
+		flex-wrap: wrap;
 		gap: 1rem;
 		.left-section {
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
+			@include flex(center, flex-start);
 			flex-direction: column;
+			width: calc(50% - 1rem);
+			@include width(md) {
+				width: calc(100%);
+			}
 			.skills-header {
 				color: get(main-color);
-				font-size: 35px;
+				font-size: 3.5rem;
+				@include width(lg) {
+					font-size: 3rem;
+				}
+				@include width(xmd) {
+					font-size: 2.5rem;
+				}
+				@include width(md) {
+					font-size: 2rem;
+				}
+				.title {
+					padding-right: 20px;
+				}
 			}
 			.skills-description {
 				color: get(light-text);
@@ -242,7 +270,9 @@ header {
 				.read-more-list {
 					@extend .skills-description;
 					transition: all 0.5s ease-in-out;
-					clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 0);
+					max-height: 300px;
+					overflow: hidden;
+					padding: 0;
 				}
 				.read-more-btn {
 					text-decoration: underline;
@@ -256,13 +286,15 @@ header {
 			}
 		}
 		.right-section {
+			width: calc(50% - 1rem);
+			@include width(md) {
+				width: calc(100%);
+			}
 			.box-row {
 				width: 100%;
 				padding-top: 20px;
 				.Name {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
+					@include flex(space-between, center);
 				}
 				span {
 					background: get(main-color);
@@ -280,57 +312,69 @@ header {
 
 /* ============================================ projects ============================================= */
 .Projects {
-	background-color: get(dark-bg);
-	.projects-catagory {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1rem;
-		.project-box {
-			background: linear-gradient(get(main-color), get(dark-bg));
-			padding: 20px;
-			text-align: center;
-			cursor: pointer;
-			overflow: hidden;
-			border: get(border);
-			border-radius: 20px;
-			position: relative;
-			&:hover {
-				.project-img {
-					transform: scale(1.1);
-					filter: brightness(1.5);
+	background: get(dark-bg);
+	.projects-category {
+		.category-title {
+			color: get(light-text);
+			font-size: 3.5rem;
+			padding-top: 40px;
+			@include width(md) {
+				font-size: 3rem;
+			}
+			@include width(sm) {
+				font-size: 2.5rem;
+			}
+		}
+		.swiper-wrapper {
+			margin-bottom: 20px;
+			.project-box {
+				background: linear-gradient(get(main-color), get(dark-bg));
+				text-align: center;
+				cursor: pointer;
+				overflow: hidden;
+				border: get(border);
+				border-radius: 20px;
+				position: relative;
+				&:hover {
+					.project-img {
+						transform: scale(1.1);
+						filter: brightness(1.5);
+					}
+					.project-overlay {
+						top: 0;
+					}
+				}
+				.project-content {
+					.content-img {
+						width: 100%;
+						max-height: 165px;
+						padding: 20px;
+					}
+					.content-title {
+						color: get(light-text);
+						padding-block: 15px 30px;
+						font-size: 1.8rem;
+						white-space: nowrap;
+					}
 				}
 				.project-overlay {
-					top: 0;
-				}
-			}
-			.project-overlay {
-				@include flex(center, center);
-				@include absolute(tr, -100%, 0);
-				width: 100%;
-				height: 100%;
-				transition: 0.3s ease-in-out !important;
-				.overlay {
-					@include absolute(tr, 0, 0);
-					background: get(dark-bg);
+					@include flex(center, center);
+					@include absolute(tr, -100%, 0);
 					width: 100%;
 					height: 100%;
-					opacity: 0.7;
-					z-index: 1;
-				}
-				.mybtn {
-					border-radius: get(r2);
-					z-index: 222;
-				}
-			}
-			.project-content {
-				.content-img {
-					width: 100%;
-					height: 80%;
-				}
-				.content-title {
-					color: get(main-color);
-					padding-top: 30px;
-					font-size: 23px;
+					transition: 0.3s ease-in-out !important;
+					.overlay {
+						@include absolute(tr, 0, 0);
+						background: get(dark-bg);
+						width: 100%;
+						height: 100%;
+						opacity: 0.7;
+						z-index: 1;
+					}
+					.mybtn {
+						border-radius: get(r2);
+						z-index: 222;
+					}
 				}
 			}
 		}
@@ -340,33 +384,47 @@ header {
 /* ============================================ Contact ============================================== */
 .Contact {
 	background: get(white);
-	.contact-catagory {
-		display: -ms-grid;
-		display: grid;
-		-ms-grid-columns: (minmax(15rem, 1fr)) [auto-fit];
-		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-		gap: 2rem;
+	.contact-category {
+		@include flex(space-between, center);
+		gap: 1rem;
+		flex-wrap: wrap;
+		@include width(xmd) {
+			flex-direction: column-reverse;
+		}
 		.left-section {
-			width: 100%;
+			width: calc(50% - 1rem);
 			height: 100%;
 			overflow: hidden;
-			border-top-right-radius: 80px;
-			border-bottom-left-radius: 80px;
+			border-radius: 0 80px 0 80px;
 			box-shadow: get(box-shadow);
+			@include width(xmd) {
+				width: 100%;
+			}
 			.map {
 				width: 100%;
-				height: 100%;
+				min-height: 664px;
+				display: block;
 				border: 0;
 				filter: invert(1);
+				@include width(md) {
+					min-height: 500px;
+				}
+				@include width(xmd) {
+					min-height: 400px;
+				}
 			}
 		}
 		.right-section {
 			background: get(dark-bg);
+			width: calc(50% - 1rem);
 			padding: 30px;
 			text-align: center;
 			box-shadow: get(box-shadow);
 			border: 80px 0 80px 0;
 			border-radius: 0 80px 0 80px;
+			@include width(xmd) {
+				width: 100%;
+			}
 			.content-header {
 				color: get(white);
 				font-size: 45px;
@@ -375,10 +433,8 @@ header {
 			}
 			.my-form {
 				.input-row {
+					@include flex(space-between, center);
 					background: #333;
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
 					margin-block: 30px;
 					overflow: hidden;
 					border-radius: get(r2);
@@ -414,18 +470,14 @@ header {
 footer {
 	background-color: get(dark-bg);
 	padding: 3rem 9% 1rem;
-	.footer-Catagory {
+	.footer-category {
+		@include grid(20rem);
 		color: get(white);
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-		gap: 1rem;
 		.box {
 			.box-row {
-				display: flex;
-				justify-content: auto;
-				align-items: center;
-				cursor: pointer;
+				@include flex(auto, center);
 				padding-block: 20px;
+				cursor: pointer;
 				&:hover {
 					a {
 						color: get(main-color);
@@ -461,9 +513,27 @@ footer {
 		padding-top: 20px;
 		border-top: 1px solid rgba(170, 170, 170, 0.8);
 		h1 {
-			font-size: 25px;
+			font-size: 2.5rem;
+			@include width(md) {
+				font-size: 2rem;
+			}
+			@include width(sm) {
+				font-size: 1.6rem;
+			}
+			@include width(xsm) {
+				font-size: 1.4rem;
+			}
 			span {
-				font-size: 28px;
+				font-size: 2.5rem;
+				@include width(md) {
+					font-size: 2rem;
+				}
+				@include width(sm) {
+					font-size: 1.6rem;
+				}
+				@include width(xsm) {
+					font-size: 1.4rem;
+				}
 			}
 		}
 	}
@@ -473,225 +543,42 @@ footer {
 .scroller-btn {
 	padding: 0;
 	.Scroll {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
+		@include flex(center, center);
+		@include fixed(br, 50px, 50px);
 		background-color: white;
 		color: crimson;
 		width: 50px;
 		height: 70px;
 		font-size: 50px;
-		position: fixed;
-		bottom: 50px;
-		right: 50px;
-		border-radius: 50% 50% 23% 77% / 72% 80% 20% 28%;
-		-webkit-box-shadow: 0 0 15px get(dark-text);
+		z-index: 1000;
 		box-shadow: 0 0 15px get(dark-text);
-		-webkit-animation: UpDown 2s infinite ease-in-out;
+		border-radius: 50% 50% 23% 77% / 72% 80% 20% 28%;
 		animation: UpDown 2s infinite ease-in-out;
 		&:hover {
 			background-color: crimson;
 			color: white;
 		}
+		@include width(md) {
+			width: 35px;
+			height: 55px;
+			font-size: 35px;
+		}
+		@include width(xsm) {
+			width: 25px;
+			height: 40px;
+			font-size: 25px;
+		}
 	}
 	.Scroll.fa-caret-down {
 		border-radius: 85% 15% 53% 47% / 24% 22% 78% 76%;
 	}
-	.eapps-widget-toolbar {
-		.eapps-widget-toolbar-panel-share-block {
-			display: none;
-		}
+	.eapps-widget-toolbar .eapps-widget-toolbar-panel-share-block {
+		display: none;
 	}
 }
-@media (max-width: 768px) {
-	html {
-		body {
-			font-size: 12px;
-		}
-	}
-	.Style {
-		padding: 5px 20px;
-		margin: 10px 0;
-		font-size: 20px;
-	}
-	.title2 {
-		font-size: 20px;
-	}
-}
-@media (max-width: 460px) {
-	html {
-		body {
-			font-size: 10px;
-		}
-	}
-	.title {
-		font-size: 16px;
-		span {
-			font-size: 18px;
-		}
-	}
-	.Home {
-		.Content {
-			h1 {
-				font-size: 3em;
-			}
-		}
-	}
-	.Skills {
-		.Catagory {
-			.left {
-				h1 {
-					font-size: 16px;
-				}
-			}
-		}
-	}
-	.Contact {
-		.Catagory {
-			.right {
-				button {
-					font-size: 14px;
-				}
-				.con {
-					label.fa {
-						font-size: 16px;
-					}
-				}
-			}
-		}
-	}
-	footer {
-		.Copy {
-			h1 {
-				span {
-					font-size: 16px;
-				}
-				font-size: 16px;
-			}
-		}
-	}
-}
-@media (max-width: 600px) {
-	html {
-		section {
-			padding: 3rem 5%;
-		}
-	}
-	.title {
-		font-size: 25px;
-	}
-	.Home {
-		.Content {
-			a {
-				font-size: 14px;
-				padding: 10px 20px;
-			}
-		}
-	}
-	.Skills {
-		.Catagory {
-			.left {
-				h1 {
-					font-size: 20px;
-				}
-			}
-		}
-	}
-	.projects {
-		.Catagory {
-			.box {
-				h3 {
-					font-size: 20px;
-				}
-			}
-		}
-	}
-	.Contact {
-		.Catagory {
-			.right {
-				button {
-					padding: 10px 20px;
-				}
-				.con {
-					label.fa {
-						font-size: 18px;
-					}
-					.username {
-						font-size: 16px;
-						padding: 8px;
-					}
-				}
-			}
-		}
-	}
-	footer {
-		.Copy {
-			h1 {
-				span {
-					font-size: 20px;
-				}
-				font-size: 20px;
-			}
-		}
-	}
-}
-@media (max-width: 800px) {
-	.title {
-		font-size: 30px;
-	}
-	.Skills {
-		.Catagory {
-			.left {
-				h1 {
-					font-size: 30px;
-				}
-			}
-		}
-	}
-	.Contact {
-		.Catagory {
-			display: block;
-			.right {
-				h1 {
-					font-size: 35px;
-				}
-			}
-		}
-	}
-}
-@media (max-width: 992px) {
-	header {
-		.fa {
-			display: inline-block;
-		}
-		nav {
-			position: absolute;
-			top: 100%;
-			left: auto;
-			background: get(dark-bg);
-			width: 100%;
-			-webkit-clip-path: polygon(50% 0%, 100% 0, 100% 0, 0 0, 0 0);
-			clip-path: polygon(50% 0%, 100% 0, 100% 0, 0 0, 0 0);
-			a {
-				width: -webkit-fit-content;
-				width: -moz-fit-content;
-				width: fit-content;
-				margin: 20px 50px;
-				display: block;
-			}
-		}
-	}
-}
-@media (max-width: 440px) {
-	.eapps-widget-toolbar {
-		.eapps-widget-toolbar-panel {
-			display: block !important;
-		}
+
+.eapps-widget-toolbar .eapps-widget-toolbar-panel {
+	@include width(xsm) {
+		display: block !important;
 	}
 }

@@ -7,7 +7,7 @@ export default function footer() {
 				<h1>Footer</h1>
 				<span>Follow My Wibsites</span>
 			</div>
-			<div className="footer-Catagory">
+			<div className="footer-category">
 				<div className="box" data-aos="zoom-in" data-aos-delay="250">
 					<h2>Quick Links</h2>
 					<div className="box-row">
@@ -69,9 +69,9 @@ export default function footer() {
 					</div>
 					<div className="box-row">
 						<i className="fa fa-envelope"></i>
-						<p className="link" id="Contact" style={{ textTransform: "lowercase" }}>
+						<a className="link" id="#Contact" style={{ textTransform: "lowercase", width: "100%" }}>
 							shehabayman365@gmail.com
-						</p>
+						</a>
 					</div>
 				</div>
 				<div className="box" data-aos="zoom-in" data-aos-delay="350">
@@ -91,7 +91,7 @@ export default function footer() {
 				</div>
 			</div>
 			<div className="Copy">
-				<h1 data-aos="fade-right" data-aos-delay="250" data-aos-offset="0">
+				<h1>
 					Created By <span>Mr. Shehab Ayman</span> | All Rights Reserved
 				</h1>
 			</div>

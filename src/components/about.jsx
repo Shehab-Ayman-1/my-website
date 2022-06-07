@@ -19,7 +19,7 @@ export default function About() {
 				<h1>About Me</h1>
 				<span>Who I Am</span>
 			</div>
-			<div className="about-Catagory">
+			<div className="about-category">
 				<div className="left-section">
 					<img src="./images/About.jpg" data-aos="fade-right" data-aos-delay="150" />
 				</div>

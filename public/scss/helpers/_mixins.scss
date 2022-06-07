@@ -70,7 +70,14 @@
 	}
 }
 
-@mixin background($url, $size, $attachment) {
+@mixin linear-background($url, $linear, $size, $attachment) {
+	background: linear-gradient($linear), url($url) no-repeat;
+	background-position: center;
+	background-size: $size;
+	background-attachment: $attachment;
+}
+
+@mixin normal-background($url, $size, $attachment) {
 	background: url($url) no-repeat;
 	background-position: center;
 	background-size: $size;

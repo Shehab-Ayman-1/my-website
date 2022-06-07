@@ -5,7 +5,7 @@ export default function Skills() {
 	useEffect(() => {
 		let progress = () => {
 			let skills = document.querySelector(".Skills");
-			let Progress = document.querySelectorAll(".Skills .skills-catagory .box-row span");
+			let Progress = document.querySelectorAll(".Skills .skills-category .box-row span");
 			if (window.scrollY >= skills.offsetTop - 300) {
 				Progress.forEach((span) => (span.style.width = span.dataset.width));
 			} else {
@@ -40,8 +40,8 @@ export default function Skills() {
 
 	let readMode = (event) => {
 		let btn = event.target;
-		let list = document.querySelector(".Skills .skills-catagory .left-section .read-more-list");
-		list.classList.toggle("hide-top-clip");
+		let list = document.querySelector(".Skills .skills-category .left-section .read-more-list");
+		list.classList.toggle("hide-height");
 		if (btn.innerHTML === "Read More") btn.innerHTML = "Read Less";
 		else btn.innerHTML = "Read More";
 	};
@@ -52,10 +52,10 @@ export default function Skills() {
 				<h1>My Skills</h1>
 				<span>What I Know</span>
 			</div>
-			<div className="skills-catagory">
+			<div className="skills-category">
 				<div className="left-section">
 					<h1 className="skills-header" data-aos="fade-right" data-aos-delay="250">
-						My Creative Skills & Experiences <br />|<span className="Auto3"></span>
+						<span className="title">My Creative Skills & Experiences |</span> <span className="Auto3"></span>
 					</h1>
 					<p className="skills-description" data-aos="fade-right" data-aos-delay="350">
 						Design, build and maintain websites using the appropriate coding and scripting languages, content
@@ -70,7 +70,7 @@ export default function Skills() {
 						<span className="read-more-btn" data-aos="fade-right" data-aos-delay="450" onClick={readMode}>
 							Read More
 						</span>
-						<p className="read-more-list hide-top-clip" data-aos="fade-right" data-aos-delay="350">
+						<p className="read-more-list hide-height" data-aos="fade-right" data-aos-delay="350">
 							Identify issues discovered by testing and feedback from internal and external clients, and
 							correct problems or refer them to the appropriate teams for resolution Collaborate with teams on
 							website plans, such as budgets, performance requirements, equipment, or legal issues, including
