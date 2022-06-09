@@ -1,5 +1,14 @@
 import React from "react";
+
+// AOS Library
 import Aos from "aos";
+import "aos/dist/aos.css";
+
+// Swiper Style Library
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css";
+
 // Pages
 import Header from "./components/header";
 import Home from "./components/home";
@@ -13,7 +22,6 @@ import Footer from "./components/footer";
 // Addition
 import Scoller from "./components/scroller";
 import Preloader from "./components/preloader";
-import "aos/dist/aos.css";
 
 Aos.init({ delay: 150, offset: 0, mirror: true });
 

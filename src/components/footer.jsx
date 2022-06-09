@@ -8,47 +8,47 @@ export default function footer() {
 				<span>Follow My Wibsites</span>
 			</div>
 			<div className="footer-category">
-				<div className="box" data-aos="zoom-in" data-aos-delay="250">
-					<h2>Quick Links</h2>
+				<div className="footer-box" data-aos="zoom-in" data-aos-delay="250">
+					<h2 className="box-title">Quick Links</h2>
 					<div className="box-row">
 						<i className="fa fa-arrow-right"></i>
-						<p className="link" id="Home">
+						<a className="link" href="#Home">
 							Home
-						</p>
+						</a>
 					</div>
 					<div className="box-row">
 						<i className="fa fa-arrow-right"></i>
-						<p className="link" id="About">
+						<a className="link" href="#About">
 							About
-						</p>
+						</a>
 					</div>
 					<div className="box-row">
 						<i className="fa fa-arrow-right"></i>
-						<p className="link" id="Services">
+						<a className="link" href="#Services">
 							Services
-						</p>
+						</a>
 					</div>
 					<div className="box-row">
 						<i className="fa fa-arrow-right"></i>
-						<p className="link" id="Skills">
+						<a className="link" href="#Skills">
 							Skills
-						</p>
+						</a>
 					</div>
 					<div className="box-row">
 						<i className="fa fa-arrow-right"></i>
-						<p className="link" id="Portfolio">
-							My-Work
-						</p>
+						<a className="link" href="#Projects">
+							My Projects
+						</a>
 					</div>
 					<div className="box-row">
 						<i className="fa fa-arrow-right"></i>
-						<p className="link" id="Contect">
+						<a className="link" href="#Contect">
 							Contect
-						</p>
+						</a>
 					</div>
 				</div>
-				<div className="box" data-aos="zoom-in" data-aos-delay="250">
-					<h2>Contact Me</h2>
+				<div className="footer-box" data-aos="zoom-in" data-aos-delay="250">
+					<h2 className="box-title">Contact Me</h2>
 					<div className="box-row">
 						<i className="fab fa-facebook-f"></i>
 						<a className="link" href="https://www.facebook.com/shehabcool94" target="_blank">
@@ -69,20 +69,27 @@ export default function footer() {
 					</div>
 					<div className="box-row">
 						<i className="fa fa-envelope"></i>
-						<a className="link" id="#Contact" style={{ textTransform: "lowercase", width: "100%" }}>
+						<a
+							className="link"
+							id="mailto:shehabayman365@gmail.com?subject=Content"
+							style={{ textTransform: "lowercase", width: "100%" }}>
 							shehabayman365@gmail.com
 						</a>
 					</div>
 				</div>
-				<div className="box" data-aos="zoom-in" data-aos-delay="350">
-					<h2>Contact Me</h2>
+				<div className="footer-box" data-aos="zoom-in" data-aos-delay="350">
+					<h2 className="box-title">Contact Me</h2>
 					<div className="box-row">
 						<i className="fa fa-phone"></i>
-						<p className="link">+20 1067421381</p>
+						<a href="tel:01067421381" className="link">
+							+20 1067421381
+						</a>
 					</div>
 					<div className="box-row">
 						<i className="fa fa-phone"></i>
-						<p className="link">+20 1554566092</p>
+						<a href="tel:01067421381" className="link">
+							+20 1554566092
+						</a>
 					</div>
 					<div className="box-row">
 						<i className="fab fa-whatsapp"></i>

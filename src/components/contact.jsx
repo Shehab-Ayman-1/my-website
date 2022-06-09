@@ -16,7 +16,7 @@ export default function contact() {
 						loading="lazy"></iframe>
 				</div>
 				<div className="right-section">
-					<h1 className="content-header">
+					<h1 className="contant-header">
 						<span>Contact</span> Us
 					</h1>
 					<form className="my-form">

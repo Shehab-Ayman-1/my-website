@@ -2,6 +2,18 @@
 @use "./mixins" as *;
 
 // Default Elements Style
+
+section {
+	padding: 5rem 9%;
+	@include width(md) {
+		padding: 3rem 5%;
+	}
+}
+
+span {
+	color: get(main-color);
+}
+
 a {
 	color: get(black);
 	list-style: none !important;
@@ -19,8 +31,13 @@ i {
 	&:hover {
 		color: get(main-color);
 	}
-	&[data-empty] {
+	&[data-empty="light"] {
 		color: get(white);
+		-webkit-text-stroke: 1px get(black);
+	}
+	&[data-empty="dark"] {
+		color: get(black);
+		-webkit-text-stroke: 1px get(white);
 	}
 }
 

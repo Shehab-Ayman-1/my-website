@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css";
 SwiperCore.use([Autoplay]);
 
 export default function Projects() {
+	const [breakpoints] = useState({
+		0: { slidesPerView: 1 },
+		350: { slidesPerView: 2 },
+		520: { slidesPerView: 3 },
+		792: { slidesPerView: 4 },
+		1250: { slidesPerView: 5 },
+	});
 	let delay = 0;
 
 	const projects = {
@@ -60,12 +64,12 @@ export default function Projects() {
 			},
 			{
 				img: "Travel.ico",
-				title: "Travil Online Booking",
+				title: "Online booking",
 				link: "travel",
 			},
 			{
 				img: "Vegetarian.ico",
-				title: "Vegetarian Restaurant",
+				title: "Market",
 				link: "Vegeterian",
 			},
 			{
@@ -113,7 +117,7 @@ export default function Projects() {
 			{
 				img: "Burber.ico",
 				title: "Burber Shop",
-				link: "Barber Shop",
+				link: "Barber_Shop",
 			},
 			{
 				img: "Fashion2.ico",
@@ -144,12 +148,12 @@ export default function Projects() {
 			},
 			{
 				img: "Travel.ico",
-				title: "Travil Online Booking",
+				title: "Online booking",
 				link: "https://shehab-ayman.000webhostapp.com",
 			},
 			{
 				img: "Vegetarian.ico",
-				title: "Vegetarian Restaurant",
+				title: "Market",
 				link: "https://shehab-ayman.000webhostapp.com",
 			},
 			{
@@ -170,32 +174,20 @@ export default function Projects() {
 		],
 	};
 
-	let getProjects = (objData) => {
-		if (delay < 5) {
-			delay += 1;
-		} else {
-			delay = 1;
-		}
+	let renderLocalProjects = (objData) => {
+		if (delay < 5) delay += 1;
+		else delay = 1;
 
 		return (
 			<Swiper
 				modules={[Navigation, Pagination]}
 				loop={true}
 				spaceBetween={20}
-				slidesPerView={5}
 				grabCursor={true}
 				navigation
 				pagination={{ clickable: true }}
-				autoHeight={true}
-				breakpoints={{
-					0: { slidesPerView: 1 },
-					300: { slidesPerView: 2 },
-					390: { slidesPerView: 3 },
-					792: { slidesPerView: 4 },
-					992: { slidesPerView: 5 },
-					1200: { slidesPerView: 6 },
-				}}
-				autoplay={{ delay: 222000, disableOnInteraction: false }}>
+				breakpoints={breakpoints}
+				autoplay={{ delay: 2000, disableOnInteraction: false }}>
 				{objData.map((item, i) => {
 					delay < 5 ? (delay += 1) : (delay = 1);
 					return (
@@ -205,7 +197,7 @@ export default function Projects() {
 								<h3 className="content-title">{item.title}</h3>
 							</div>
 							<div className="project-overlay">
-								<a className="mybtn" href={`./projects/${item.link}/index.html`} target="_blank">
+								<a className="mybtn" href={`./projects/${item.link}/index.html`} target="_blank" rel="noreferrer">
 									Visit Site
 								</a>
 								<div className="overlay"></div>
@@ -217,31 +209,20 @@ export default function Projects() {
 		);
 	};
 
-	let reactProjects = (objData) => {
-		if (delay < 5) {
-			delay += 1;
-		} else {
-			delay = 1;
-		}
+	let renderRemoteProjects = (objData) => {
+		if (delay < 5) delay += 1;
+		else delay = 1;
 
 		return (
 			<Swiper
 				modules={[Navigation, Pagination]}
 				loop={true}
 				spaceBetween={20}
-				slidesPerView={5}
 				grabCursor={true}
 				navigation
 				pagination={{ clickable: true }}
-				breakpoints={{
-					0: { slidesPerView: 1 },
-					300: { slidesPerView: 2 },
-					390: { slidesPerView: 3 },
-					792: { slidesPerView: 4 },
-					992: { slidesPerView: 5 },
-					1200: { slidesPerView: 6 },
-				}}
-				autoplay={{ delay: 233000, disableOnInteraction: false }}>
+				breakpoints={breakpoints}
+				autoplay={{ delay: 2000, disableOnInteraction: false }}>
 				{objData.map((item, i) => {
 					delay < 5 ? (delay += 1) : (delay = 1);
 					return (
@@ -251,7 +232,7 @@ export default function Projects() {
 								<h3 className="content-title">{item.title}</h3>
 							</div>
 							<div className="project-overlay">
-								<a className="mybtn" href={item.link} target="_blank">
+								<a className="mybtn" href={item.link} target="_blank" rel="noreferrer">
 									Visit Site
 								</a>
 								<div className="overlay"></div>
@@ -265,27 +246,27 @@ export default function Projects() {
 
 	return (
 		<section className="Projects" id="Projects">
-			<div className="light-title" data-aos="zoom-out" data-aos-delay="150">
+			<div className="light-title" data-aos="fade-down" data-aos-delay="150">
 				<h1>My Projects</h1>
 				<span>Some Of My Previous Work</span>
 			</div>
 
 			<div className="projects-category">
-				<div className="html-css-js" data-aos="zoom-out" data-aos-delay="150">
+				<div className="html-css-js" data-aos="fade-right" data-aos-delay="150">
 					<h3 className="category-title">HTML, Css, Javascript</h3>
-					{getProjects(projects.html_css_js)}
+					{renderLocalProjects(projects.html_css_js)}
 				</div>
-				<div className="pug-bootstrap-scss" data-aos="zoom-out" data-aos-delay="250">
+				<div className="pug-bootstrap-scss" data-aos="fade-right" data-aos-delay="250">
 					<h3 className="category-title">pug, bootstrap, scss</h3>
-					{getProjects(projects.pug_scss_bootstrap)}
+					{renderLocalProjects(projects.pug_scss_bootstrap)}
 				</div>
-				<div className="gulp-api" data-aos="zoom-out" data-aos-delay="350">
+				<div className="gulp-api" data-aos="fade-right" data-aos-delay="350">
 					<h3 className="category-title">gulp, Api</h3>
-					{getProjects(projects.gulp_api)}
+					{renderLocalProjects(projects.gulp_api)}
 				</div>
-				<div className="react.js" data-aos="zoom-out" data-aos-delay="450">
+				<div className="react.js" data-aos="fade-right" data-aos-delay="450">
 					<h3 className="category-title">React.js</h3>
-					{reactProjects(projects.react)}
+					{renderRemoteProjects(projects.react)}
 				</div>
 			</div>
 		</section>

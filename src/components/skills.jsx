@@ -15,7 +15,7 @@ export default function Skills() {
 		window.addEventListener("scroll", progress);
 		window.addEventListener("load", progress);
 		return () => {
-			new Typed(".Auto3", {
+			new Typed(".skills-autotyping", {
 				strings: [
 					"HTML5",
 					"CSS",
@@ -55,7 +55,8 @@ export default function Skills() {
 			<div className="skills-category">
 				<div className="left-section">
 					<h1 className="skills-header" data-aos="fade-right" data-aos-delay="250">
-						<span className="title">My Creative Skills & Experiences |</span> <span className="Auto3"></span>
+						<span className="title">My Creative Skills & Experiences |</span>
+						<span className="skills-autotyping"></span>
 					</h1>
 					<p className="skills-description" data-aos="fade-right" data-aos-delay="350">
 						Design, build and maintain websites using the appropriate coding and scripting languages, content
@@ -88,84 +89,108 @@ export default function Skills() {
 							<h4>HTML</h4>
 							<h4>98%</h4>
 						</div>
-						<span data-width="98%">98%</span>
+						<span className="progress-bar" data-width="98%">
+							98%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>CSS</h4>
 							<h4>97%</h4>
 						</div>
-						<span data-width="97%">97%</span>
+						<span className="progress-bar" data-width="97%">
+							97%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>JavaScript</h4>
 							<h4>90%</h4>
 						</div>
-						<span data-width="90%">90%</span>
+						<span className="progress-bar" data-width="90%">
+							90%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>BootStrap</h4>
 							<h4>98%</h4>
 						</div>
-						<span data-width="98%">98%</span>
+						<span className="progress-bar" data-width="98%">
+							98%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>SASS</h4>
 							<h4>94%</h4>
 						</div>
-						<span data-width="94%">94%</span>
+						<span className="progress-bar" data-width="94%">
+							94%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>Veu.JS</h4>
 							<h4>85%</h4>
 						</div>
-						<span data-width="85%">85%</span>
+						<span className="progress-bar" data-width="85%">
+							85%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>React.JS</h4>
 							<h4>95%</h4>
 						</div>
-						<span data-width="95%">95%</span>
+						<span className="progress-bar" data-width="95%">
+							95%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>Gulp.Js</h4>
 							<h4>89%</h4>
 						</div>
-						<span data-width="89%">89%</span>
+						<span className="progress-bar" data-width="89%">
+							89%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>Pug.Js</h4>
 							<h4>89%</h4>
 						</div>
-						<span data-width="89%">89%</span>
+						<span className="progress-bar" data-width="89%">
+							89%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>Command Line</h4>
 							<h4>95%</h4>
 						</div>
-						<span data-width="95%">95%</span>
+						<span className="progress-bar" data-width="95%">
+							95%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>JSON</h4>
 							<h4>93%</h4>
 						</div>
-						<span data-width="93%">93%</span>
+						<span className="progress-bar" data-width="93%">
+							93%
+						</span>
 					</div>
 					<div className="box-row" data-aos="fade-down">
 						<div className="Name">
 							<h4>AJEX</h4>
 							<h4>95%</h4>
 						</div>
-						<span data-width="95%">95%</span>
+						<span className="progress-bar" data-width="95%">
+							95%
+						</span>
 					</div>
 				</div>
 			</div>

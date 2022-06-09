@@ -2,6 +2,19 @@
 @use "./mixins" as *;
 @use "./global" as *;
 
+// Pre-loader
+.pre-loader {
+	@include flex(center, center);
+	@include fixed(tl, 0, 0);
+	background: #000;
+	width: 100%;
+	height: 100%;
+	z-index: 999999999999999999;
+	img {
+		width: 50vmin;
+	}
+}
+
 // Basic Classes
 .mybtn {
 	background: transparent;
@@ -98,12 +111,25 @@
 	}
 }
 
-.swiper-button-prev,
-.swiper-button-next {
-	color: get(white) !important;
+.swiper-button-prev {
+	background-color: get(dark-bg);
+	color: get(light-text) !important;
+	width: 40px !important;
+	border-radius: get(circle);
 	@include width(sm) {
 		display: none !important;
 	}
+	&:hover {
+		box-shadow: 0 0 10px get(white);
+	}
+	&::after {
+		font-size: 22px !important;
+		font-weight: bold !important;
+	}
+}
+
+.swiper-button-next {
+	@extend .swiper-button-prev;
 }
 
 // Show & Hide Elements
@@ -205,6 +231,8 @@ $clipPath: (
 	}
 
 	.hide-#{$dir}-clip {
+		width: 0 !important;
+		background-color: transparent !important;
 		clip-path: polygon(map-get($value, hide)) !important;
 	}
 }
