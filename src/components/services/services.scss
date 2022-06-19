@@ -1,0 +1,47 @@
+@use "../../scss/helpers/mixins" as *;
+
+.services-section {
+	background: get(dark-bg);
+	.services-category {
+		@include flex(space-between, center);
+		gap: 2rem;
+		flex-wrap: wrap;
+		.serve-box {
+			background: #333;
+			color: get(white);
+			width: calc((100% / 3) - 2rem);
+			min-height: 330px;
+			text-align: center;
+			padding: 50px 20px;
+			cursor: pointer;
+			box-shadow: get(box-shadow);
+			transition: 0.5s ease-in-out !important;
+			@include width(xmd) {
+				width: calc((100% / 2) - 2rem);
+			}
+			@include width(md) {
+				width: calc(100%);
+			}
+			&:hover {
+				background: #444;
+				transform: translateY(5px) !important;
+				i {
+					color: get(white);
+				}
+			}
+			.serve-header {
+				font-size: 2.5rem;
+			}
+			.serve-desc {
+				color: get(light-text);
+				padding-top: 10px;
+				font-size: 1.5rem;
+			}
+			i {
+				color: get(main-color);
+				font-size: 50px;
+				padding-bottom: 20px;
+			}
+		}
+	}
+}

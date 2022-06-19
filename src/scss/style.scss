@@ -1,0 +1,45 @@
+@use "./helpers/" as *;
+
+.scroller-btn {
+	padding: 0;
+	.Scroll {
+		@include flex(center, center);
+		@include fixed(br, 50px, 50px);
+		background-color: white;
+		color: get(main-color);
+		width: 50px;
+		height: 70px;
+		font-size: 50px;
+		z-index: 1000;
+		box-shadow: 0 0 15px get(light-text);
+		border-radius: 50% 50% 23% 77% / 72% 80% 20% 28%;
+		animation: UpDown 2s infinite ease-in-out;
+		&:hover {
+			background-color: crimson;
+			color: white;
+			box-shadow: 0 0 15px get(light-text);
+		}
+		@include width(md) {
+			width: 35px;
+			height: 55px;
+			font-size: 35px;
+		}
+		@include width(xsm) {
+			width: 25px;
+			height: 40px;
+			font-size: 25px;
+		}
+	}
+	.Scroll.fa-caret-down {
+		border-radius: 85% 15% 53% 47% / 24% 22% 78% 76%;
+	}
+	.eapps-widget-toolbar .eapps-widget-toolbar-panel-share-block {
+		display: none;
+	}
+}
+
+.eapps-widget-toolbar .eapps-widget-toolbar-panel {
+	@include width(xsm) {
+		display: block !important;
+	}
+}

@@ -1,0 +1,45 @@
+@use "../../scss/helpers/mixins" as *;
+
+.about-section {
+	background: get(white);
+	.about-category {
+		@include flex(space-between, center);
+		@include width(md) {
+			flex-direction: column;
+		}
+		.left-section {
+			width: 40%;
+			text-align: left;
+			@include width(md) {
+				width: 80%;
+			}
+			img {
+				width: 100%;
+				display: block;
+			}
+		}
+		.right-section {
+			color: get(dark-text);
+			width: 60%;
+			line-height: 2;
+			@include width(md) {
+				width: 100%;
+			}
+			.about-content {
+				.content-header {
+					font-size: 3rem;
+					@include width(sm) {
+						font-size: 2rem;
+					}
+				}
+				.content-description {
+					color: get(light-text);
+					font-size: 1.5rem;
+					@include width(sm) {
+						font-size: 1.2rem;
+					}
+				}
+			}
+		}
+	}
+}

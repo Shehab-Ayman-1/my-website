@@ -1,0 +1,77 @@
+@use "../../scss/helpers/mixins" as *;
+
+.projects-section {
+	background: get(dark-bg);
+	.projects-category {
+		.category-title {
+			color: get(light-text);
+			font-size: 3rem;
+			padding-top: 40px;
+			@include width(sm) {
+				font-size: 2.3rem;
+			}
+		}
+		.swiper-wrapper {
+			margin-bottom: 25px;
+			.project-box {
+				background: linear-gradient(get(main-color), get(dark-bg));
+				text-align: center;
+				cursor: pointer;
+				overflow: hidden;
+				border-radius: 20px;
+				box-shadow: get(box-shadow);
+				position: relative;
+				&:hover {
+					.project-img {
+						transform: scale(1.1);
+						filter: brightness(1.5);
+					}
+					.project-overlay {
+						top: 0;
+					}
+				}
+				.project-content {
+					height: 250px;
+					.content-img {
+						width: 100%;
+						height: 70%;
+						padding: 20px;
+						&.Filmlane {
+							margin-top: 120px;
+						}
+					}
+					.content-title {
+						color: get(light-text);
+						padding-block: 15px 30px;
+						font-size: 1.8rem;
+					}
+				}
+				.project-overlay {
+					@include flex(center, center);
+					@include absolute(tr, -100%, 0);
+					width: 100%;
+					height: 100%;
+					transition: 0.3s ease-in-out !important;
+					.overlay {
+						@include absolute(tr, 0, 0);
+						background: get(dark-bg);
+						width: 100%;
+						height: 100%;
+						opacity: 0.7;
+						z-index: 1;
+					}
+					.mybtn {
+						border-radius: get(r2);
+						z-index: 222;
+						@include width(xmd) {
+							font-size: 1.4rem;
+						}
+						@include width(md) {
+							font-size: 1.8rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

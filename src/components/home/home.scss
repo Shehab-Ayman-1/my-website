@@ -1,0 +1,52 @@
+@use "../../scss/helpers/mixins" as *;
+
+.home-section {
+	@include flex(auto, center);
+	@include linear-background("./Home.png", (rgba(0, 0, 0, 0.1), rgba(220, 20, 60, 0.1)), cover, initial);
+	width: 100vw;
+	min-height: 100vh;
+	position: relative;
+	@include width(xsm) {
+		@include flex(center, center);
+	}
+	.info {
+		.info-header {
+			color: get(light-text);
+			font-size: 2.3rem;
+			@include width(md) {
+				font-size: 2rem;
+			}
+			@include width(sm) {
+				font-size: 1.5rem;
+			}
+		}
+		.info-name {
+			color: get(main-color);
+			font-size: 6rem;
+			@include width(md) {
+				font-size: 5rem;
+			}
+			@include width(sm) {
+				font-size: 4rem;
+			}
+		}
+		.info-jobs {
+			@extend .info-header;
+			margin-bottom: 50px;
+			.home-auto-typed {
+				color: get(black);
+			}
+		}
+		.mybtn {
+			background-color: get(main-color);
+			@include width(sm) {
+				padding: 5px 25px;
+				font-size: 1.4rem;
+			}
+			&:hover {
+				background-color: get(white);
+				color: get(black);
+			}
+		}
+	}
+}

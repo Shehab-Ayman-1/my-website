@@ -1,0 +1,88 @@
+@use "../../scss/helpers/mixins" as *;
+
+.skills-section {
+	background: get(white);
+	.skills-category {
+		@include flex(space-between, center);
+		flex-wrap: wrap;
+		gap: 1rem;
+		.left-section {
+			@include flex(center, flex-start);
+			flex-direction: column;
+			width: calc(50% - 1rem);
+			@include width(md) {
+				width: calc(100%);
+			}
+			.skills-header {
+				color: get(main-color);
+				font-size: 3.5rem;
+				@include width(lg) {
+					font-size: 3rem;
+				}
+				@include width(xmd) {
+					font-size: 2.5rem;
+				}
+				@include width(md) {
+					font-size: 2rem;
+				}
+				.title {
+					padding-right: 20px;
+				}
+			}
+			.skills-description {
+				color: get(light-text);
+				text-align: justify;
+				padding: 10px 0;
+				font-size: 1.6rem;
+			}
+			.read-more {
+				.read-more-list {
+					@extend .skills-description;
+					transition: all 0.5s ease-in-out;
+					max-height: 300px;
+					overflow: hidden;
+					padding: 0;
+				}
+				.read-more-btn {
+					text-decoration: underline;
+					font-size: 1.6rem;
+					font-weight: bold;
+					cursor: pointer;
+					&:hover {
+						color: get(dark-text);
+					}
+				}
+			}
+		}
+		.right-section {
+			width: calc(50% - 1rem);
+			@include width(md) {
+				width: calc(100%);
+			}
+			.box-row {
+				width: 100%;
+				padding-top: 20px;
+				.Name {
+					@include flex(space-between, center);
+					color: get(black);
+					font-size: 1.6rem;
+					@include width(md) {
+						font-size: 1.4rem;
+					}
+					@include width(sm) {
+						font-size: 1.2rem;
+					}
+				}
+				.progress-bar {
+					background: linear-gradient(to right, get(main-color), get(light-text));
+					color: get(white);
+					width: 50%;
+					padding: 3px;
+					text-align: center;
+					display: block;
+					transition: 1.5s ease-in-out;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,140 @@
+@use "../../scss/helpers/mixins" as *;
+
+.contact-section {
+	background: get(white);
+	.contact-category {
+		@include flex(space-between, center);
+		gap: 1rem;
+		flex-wrap: wrap;
+		@include width(xmd) {
+			flex-direction: column-reverse;
+		}
+		.left-section {
+			width: calc(50% - 1rem);
+			height: 100%;
+			overflow: hidden;
+			border-radius: 0 80px 0 80px;
+			box-shadow: get(box-shadow);
+			@include width(xmd) {
+				width: 100%;
+			}
+			@include width(xsm) {
+				border-radius: 0 50px 0 50px;
+			}
+			.map {
+				width: 100%;
+				min-height: 664px;
+				display: block;
+				border: 0;
+				filter: invert(1);
+				@include width(md) {
+					min-height: 500px;
+				}
+				@include width(xmd) {
+					min-height: 400px;
+				}
+			}
+		}
+		.right-section {
+			background: get(dark-bg);
+			width: calc(50% - 1rem);
+			padding: 30px;
+			text-align: center;
+			box-shadow: get(box-shadow);
+			border: 80px 0 80px 0;
+			border-radius: 0 80px 0 80px;
+			@include width(xsm) {
+				border-radius: 0 50px 0 50px;
+			}
+			@include width(xmd) {
+				width: 100%;
+			}
+			.contant-header {
+				color: get(white);
+				font-size: 4.5rem;
+				padding-bottom: 30px;
+				letter-spacing: 2px;
+				@include width(md) {
+					font-size: 4rem;
+				}
+				@include width(xsm) {
+					font-size: 3rem;
+				}
+				@include width(sm) {
+					font-size: 2.5rem;
+				}
+			}
+			.my-form {
+				.input-row {
+					@include flex(space-between, center);
+					background: #333;
+					margin-block: 30px;
+					overflow: hidden;
+					border-radius: get(r2);
+					border: get(border);
+					@include width(xsm) {
+						border-radius: get(r1);
+					}
+					.label-icon {
+						color: get(white);
+						font-size: 25px;
+						padding: 0 10px;
+						@include width(md) {
+							font-size: 20px;
+						}
+						@include width(xsm) {
+							font-size: 14px;
+						}
+						@include width(sm) {
+							font-size: 10px;
+						}
+					}
+					.input-field {
+						background: transparent;
+						color: get(light-text);
+						width: 100%;
+						font-size: 20px;
+						padding: 10px;
+						display: inline-block;
+						@include width(md) {
+							font-size: 16px;
+							padding: 8px;
+						}
+						@include width(xsm) {
+							font-size: 14px;
+							padding: 6px;
+						}
+						@include width(sm) {
+							font-size: 10px;
+							padding: 5px;
+						}
+					}
+					textarea {
+						@extend .input-field;
+						height: 150px;
+						@include width(md) {
+							height: 120px;
+						}
+						@include width(xsm) {
+							height: 100px;
+						}
+						@include width(sm) {
+							height: 80px;
+						}
+					}
+				}
+				.mybtn {
+					width: 100%;
+					border-radius: get(r2);
+					@include width(md) {
+						padding: 8px;
+					}
+					@include width(sm) {
+						font-size: 10px;
+						padding: 6px;
+					}
+				}
+			}
+		}
+	}
+}

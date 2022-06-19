@@ -1,0 +1,70 @@
+@use "../../scss/helpers/mixins" as *;
+
+footer.footer-section {
+	background-color: get(dark-bg);
+	padding: 3rem 9% 1rem;
+	.footer-category {
+		@include grid(20rem);
+		color: get(white);
+		.footer-box {
+			.box-title {
+				font-size: 2.3rem;
+			}
+			.box-row {
+				@include flex(auto, center);
+				padding-block: 20px;
+				cursor: pointer;
+				transition: 0.4s ease-in-out !important;
+				&:hover {
+					.link {
+						color: get(main-color);
+						padding-left: 20px;
+						font-weight: bold;
+					}
+					i {
+						color: get(white);
+					}
+				}
+				i {
+					color: get(main-color);
+				}
+				.link {
+					color: get(light-text);
+					padding-left: 10px;
+					font-size: 1.6rem;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	.Copy {
+		color: get(white);
+		text-align: center;
+		padding-top: 20px;
+		border-top: 1px solid rgba(170, 170, 170, 0.8);
+		h1 {
+			font-size: 2.5rem;
+			@include width(md) {
+				font-size: 2rem;
+			}
+			@include width(sm) {
+				font-size: 1.6rem;
+			}
+			@include width(xsm) {
+				font-size: 1.4rem;
+			}
+			span {
+				font-size: 2.5rem;
+				@include width(md) {
+					font-size: 2rem;
+				}
+				@include width(sm) {
+					font-size: 1.6rem;
+				}
+				@include width(xsm) {
+					font-size: 1.4rem;
+				}
+			}
+		}
+	}
+}
