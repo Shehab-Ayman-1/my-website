@@ -2,19 +2,22 @@ import React, { useEffect } from "react";
 import Typed from "typed.js";
 import "./skills.scss";
 
+let progress = () => {
+	let skills = document.querySelector(".skills-section");
+	let Progress = document.querySelectorAll(".skills-section .skills-category .box-row span");
+
+	if (window.scrollY >= skills.offsetTop - 150) {
+		Progress.forEach((span) => (span.style.width = span.dataset.width));
+	} else {
+		Progress.forEach((span) => (span.style.width = "0"));
+	}
+};
+
+window.addEventListener("scroll", progress);
+window.addEventListener("load", progress);
+
 export default function Skills() {
 	useEffect(() => {
-		let progress = () => {
-			let skills = document.querySelector(".skills-section");
-			let Progress = document.querySelectorAll(".skills-section .skills-category .box-row span");
-			if (window.scrollY >= skills.offsetTop - 300) {
-				Progress.forEach((span) => (span.style.width = span.dataset.width));
-			} else {
-				Progress.forEach((span) => (span.style.width = "0"));
-			}
-		};
-		window.addEventListener("scroll", progress);
-		window.addEventListener("load", progress);
 		return () => {
 			new Typed(".skills-autotyping", {
 				strings: [
@@ -41,10 +44,14 @@ export default function Skills() {
 
 	let readMode = (event) => {
 		let btn = event.target;
-		let list = document.querySelector(".Skills .skills-category .left-section .read-more-list");
+		let list = document.querySelector(".skills-section .skills-category .left-section .read-more-list");
 		list.classList.toggle("hide-height");
-		if (btn.innerHTML === "Read More") btn.innerHTML = "Read Less";
-		else btn.innerHTML = "Read More";
+
+		if (btn.innerHTML === "Read More") {
+			btn.innerHTML = "Read Less";
+		} else {
+			btn.innerHTML = "Read More";
+		}
 	};
 
 	return (
@@ -59,6 +66,7 @@ export default function Skills() {
 						<span className="title">My Creative Skills & Experiences |</span>
 						<span className="skills-autotyping"></span>
 					</h1>
+
 					<p className="skills-description" data-aos="fade-right" data-aos-delay="350">
 						Design, build and maintain websites using the appropriate coding and scripting languages, content management tools,
 						and other related software applications Write, design, or edit web page content, perform website updates as needed
@@ -67,6 +75,7 @@ export default function Skills() {
 						solutions, and resolve conflicts Ensure the code is valid, properly structured, and compatible with multiple
 						bbox-rowsers, mobile devices, and operating systems.
 					</p>
+
 					<div className="read-more">
 						<span className="read-more-btn" data-aos="fade-right" data-aos-delay="450" onClick={readMode}>
 							Read More

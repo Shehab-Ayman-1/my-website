@@ -11,11 +11,11 @@
 		height: 70px;
 		font-size: 50px;
 		z-index: 1000;
-		box-shadow: 0 0 15px get(light-text);
+		filter: drop-shadow(0 0 20px get(main-color));
 		border-radius: 50% 50% 23% 77% / 72% 80% 20% 28%;
 		animation: UpDown 2s infinite ease-in-out;
 		&:hover {
-			background-color: crimson;
+			background-color: get(main-color);
 			color: white;
 			box-shadow: 0 0 15px get(light-text);
 		}

@@ -1,0 +1,142 @@
+@use "../../scss/helpers/mixins" as *;
+.system-section {
+	@include fixed(tr, 0, 0);
+	background: get(dark-bg);
+	color: get(white);
+	width: 300px;
+	height: 100vh;
+	overflow-y: auto;
+	z-index: 1002;
+	transition: 0.3s ease-in-out;
+	clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 0);
+	@include width(sm) {
+		width: 100%;
+	}
+	&::-webkit-scrollbar {
+		width: 2px !important;
+	}
+	.system-title {
+		text-align: center;
+		font-size: 2.5rem;
+		padding: 20px;
+		.system-icon {
+			@include absolute(tr, 15px, 15px);
+		}
+	}
+	.system-theme {
+		.nested-title {
+			font-size: 2.3rem;
+			padding: 10px 20px;
+			user-select: none;
+			position: relative;
+			.system-title-icon {
+				@include absolute(tr, 20px, 25px);
+				font-size: 16px;
+			}
+		}
+		.system-themes-list {
+			max-height: 300px;
+			overflow: hidden;
+			transition: 0.4s ease-in-out !important;
+			.theme-btn {
+				font-size: 1.6rem;
+				padding: 10px 25px;
+				position: relative;
+				&:hover {
+					opacity: 0.8;
+				}
+				&::after {
+					@include absolute(tr, 25px, 30px);
+					content: "";
+					width: 10px;
+					height: 10px;
+				}
+				&.light-red-theme {
+					color: #e84118;
+					&::after {
+						background-color: #e84118;
+					}
+				}
+				&.light-blue-theme {
+					color: #00a8ff;
+					&::after {
+						background-color: #00a8ff;
+					}
+				}
+				&.light-purple-theme {
+					color: #9c88ff;
+					&::after {
+						background-color: #9c88ff;
+					}
+				}
+				&.light-yellow-theme {
+					color: #fbc531;
+					&::after {
+						background-color: #fbc531;
+					}
+				}
+				&.light-green-theme {
+					color: #4cd137;
+					&::after {
+						background-color: #4cd137;
+					}
+				}
+				&.light-silver-theme {
+					color: #7f8fa6;
+					&::after {
+						background-color: #7f8fa6;
+					}
+				}
+				&.light-darkBlue-theme {
+					color: #273c75;
+					&::after {
+						background-color: #273c75;
+					}
+				}
+			}
+		}
+	}
+	.system-font {
+		.nested-title {
+			font-size: 2.3rem;
+			padding: 10px 20px;
+			user-select: none;
+			position: relative;
+			.system-title-icon {
+				@include absolute(tr, 20px, 20px);
+				font-size: 16px;
+			}
+		}
+		.system-fonts-list {
+			max-height: 300px;
+			overflow: hidden;
+			transition: 0.4s ease-in-out !important;
+			.font-btn {
+				font-size: 1.6rem;
+				padding: 10px 25px;
+				position: relative;
+				&:hover {
+					opacity: 0.8;
+				}
+				&.Cursive {
+					font-family: cursive;
+				}
+				&.Poppins {
+					font-family: "Poppins";
+				}
+				&.Caveat {
+					font-family: "Caveat";
+				}
+				&.Cinzel {
+					font-family: "Cinzel";
+				}
+				&.Dancing {
+					font-family: "Dancing";
+				}
+				&.Montserrat {
+					font-family: "Montserrat";
+				}
+			}
+		}
+	}
+}

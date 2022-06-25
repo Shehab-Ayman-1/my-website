@@ -5,6 +5,8 @@ import "./projects.scss";
 SwiperCore.use([Autoplay]);
 
 export default function Projects() {
+	let delay = 0;
+
 	const [breakpoints] = useState({
 		0: { slidesPerView: 1 },
 		350: { slidesPerView: 2 },
@@ -12,7 +14,6 @@ export default function Projects() {
 		792: { slidesPerView: 4 },
 		1250: { slidesPerView: 5 },
 	});
-	let delay = 0;
 
 	const projects = {
 		html_css_js: [

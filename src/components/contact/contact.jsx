@@ -23,21 +23,21 @@ export default function contact() {
 					<form className="my-form">
 						<div className="input-row" data-aos="zoom-in" data-aos-delay="150">
 							<label htmlFor="username" className="fa fa-user label-icon"></label>
-							<input type="text" className="input-field" placeholder="Enter Your Name" />
+							<input type="text" className="input-field" placeholder="Enter Your Name" required />
 						</div>
 						<div className="input-row" data-aos="zoom-in" data-aos-delay="250">
 							<label htmlFor="Email" className="fa fa-envelope label-icon"></label>
-							<input type="email" className="input-field" placeholder="Enter Your Email" />
+							<input type="email" className="input-field" placeholder="Enter Your Email" required />
 						</div>
 						<div className="input-row" data-aos="zoom-in" data-aos-delay="350">
 							<label htmlFor="Number" className="fa fa-phone label-icon"></label>
-							<input type="number" className="input-field" placeholder="Enter Your Phone Number" />
+							<input type="number" className="input-field" placeholder="Enter Your Phone Number" required />
 						</div>
 						<div className="input-row" data-aos="zoom-in" data-aos-delay="450">
 							<label htmlFor="Message" className="fa fa-envelope-open-text label-icon"></label>
 							<textarea className="text-area-field" placeholder="Enter Your Message"></textarea>
 						</div>
-						<button className="mybtn" data-aos="fade-up" data-aos-delay="550" data-aos-offset="0">
+						<button className="mybtn" type="submit" data-aos="fade-up" data-aos-delay="550" data-aos-offset="0">
 							Send Now
 						</button>
 					</form>

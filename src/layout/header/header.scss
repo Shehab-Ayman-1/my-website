@@ -1,4 +1,5 @@
 @use "../../scss/helpers/mixins" as *;
+
 header {
 	@include flex(space-between, center);
 	@include fixed(tl, 0, 0);
@@ -49,8 +50,32 @@ header {
 	}
 	.header-navbar {
 		z-index: 1000;
-		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 0);
-		.navbar-title {
+		clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%, 0 0);
+		@include width(xmd) {
+			@include absolute(tr, 0, 0);
+			background: get(dark-bg);
+			height: 100vh;
+			width: 250px;
+			padding-top: 15px;
+			transition: 0.3s ease-in-out;
+			clip-path: polygon(50% 0%, 100% 0, 100% 100%, 100% 100%, 100% 0);
+		}
+		@include width(sm) {
+			width: 100% !important;
+		}
+		.navbar-logo {
+			display: none;
+			margin-top: 10px;
+			@include width(xmd) {
+				color: get(white);
+				font-size: 2rem;
+				text-align: center;
+				display: block;
+			}
+			.navbar-title {
+				font-size: 2.5rem;
+				margin-top: 10px;
+			}
 			.navbar-icon {
 				@include absolute(tr, 28px, 19px);
 			}
@@ -69,15 +94,6 @@ header {
 				display: none;
 			}
 		}
-		.navbar-title {
-			display: none;
-			@include width(xmd) {
-				color: get(white);
-				font-size: 2rem;
-				text-align: center;
-				display: block;
-			}
-		}
 		.navbar-link {
 			color: get(light-text);
 			font-size: 1.6rem;
@@ -87,21 +103,6 @@ header {
 				margin-block: 20px;
 				display: block;
 				border-bottom: solid 0.3px #363535;
-			}
-			&:hover {
-				color: get(main-color);
-				&::before {
-					width: 100%;
-					opacity: 1;
-				}
-			}
-			&.active {
-				color: get(main-color);
-				font-weight: bold;
-				&::before {
-					width: 100%;
-					opacity: 1;
-				}
 			}
 			&::before {
 				@include absolute(br, -2px, 0);
@@ -113,148 +114,15 @@ header {
 				opacity: 0;
 				transition: 0.5s ease-in-out;
 			}
-		}
-		@include width(xmd) {
-			@include absolute(tr, 0, 0);
-			background: get(dark-bg);
-			height: 100vh;
-			padding-top: 15px;
-			transition: 0.3s ease-in-out;
-			clip-path: polygon(50% 0%, 100% 0, 100% 100%, 100% 100%, 100% 0);
-		}
-		@include width(sm) {
-			width: 100% !important;
-		}
-	}
-	.system-section {
-		@include absolute(tr, 0, 0);
-		background: get(dark-bg);
-		color: get(white);
-		width: 300px;
-		height: 100vh;
-		overflow-y: auto;
-		z-index: 1002;
-		transition: 0.3s ease-in-out;
-		clip-path: polygon(50% 0%, 100% 0, 100% 100%, 0 100%, 0 0);
-		@include width(sm) {
-			width: 100%;
-		}
-		&::-webkit-scrollbar {
-			width: 2px !important;
-		}
-		.system-title {
-			text-align: center;
-			font-size: 2.5rem;
-			padding: 20px;
-			.system-icon {
-				@include absolute(tr, 15px, 15px);
+			&:hover {
+				color: #fff;
 			}
-		}
-		.system-theme {
-			.nested-title {
-				font-size: 2.3rem;
-				padding: 10px 20px;
-				position: relative;
-				.system-title-icon {
-					@include absolute(tr, 20px, 30px);
-					font-size: 16px;
-				}
-			}
-			.system-themes-list {
-				max-height: 300px;
-				overflow: hidden;
-				transition: 0.4s ease-in-out !important;
-				.theme-btn {
-					font-size: 1.6rem;
-					padding: 10px 25px;
-					position: relative;
-					&::after {
-						@include absolute(tr, 25px, 30px);
-						content: "";
-						width: 10px;
-						height: 10px;
-					}
-					&.light-red-theme {
-						color: #e84118;
-						&::after {
-							background-color: #e84118;
-						}
-					}
-					&.light-blue-theme {
-						color: #00a8ff;
-						&::after {
-							background-color: #00a8ff;
-						}
-					}
-					&.light-purple-theme {
-						color: #9c88ff;
-						&::after {
-							background-color: #9c88ff;
-						}
-					}
-					&.light-yellow-theme {
-						color: #fbc531;
-						&::after {
-							background-color: #fbc531;
-						}
-					}
-					&.light-green-theme {
-						color: #4cd137;
-						&::after {
-							background-color: #4cd137;
-						}
-					}
-					&.light-silver-theme {
-						color: #7f8fa6;
-						&::after {
-							background-color: #7f8fa6;
-						}
-					}
-					&.light-darkBlue-theme {
-						color: #273c75;
-						&::after {
-							background-color: #273c75;
-						}
-					}
-				}
-			}
-		}
-		.system-font {
-			.nested-title {
-				font-size: 2.3rem;
-				padding: 10px 20px;
-				position: relative;
-				.system-title-icon {
-					@include absolute(tr, 20px, 30px);
-					font-size: 16px;
-				}
-			}
-			.system-fonts-list {
-				max-height: 300px;
-				overflow: hidden;
-				transition: 0.4s ease-in-out !important;
-				.font-btn {
-					font-size: 1.6rem;
-					padding: 10px 25px;
-					position: relative;
-					&.Cursive {
-						font-family: cursive;
-					}
-					&.Poppins {
-						font-family: "Poppins";
-					}
-					&.Caveat {
-						font-family: "Caveat";
-					}
-					&.Cinzel {
-						font-family: "Cinzel";
-					}
-					&.Dancing {
-						font-family: "Dancing";
-					}
-					&.Montserrat {
-						font-family: "Montserrat";
-					}
+			&.active {
+				color: get(main-color);
+				font-weight: bold;
+				&::before {
+					width: 100%;
+					opacity: 1;
 				}
 			}
 		}

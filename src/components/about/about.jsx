@@ -5,7 +5,7 @@ import "./about.scss";
 export default function About() {
 	useEffect(() => {
 		return () => {
-			new Typed(".Auto2", {
+			new Typed(".about-auto-typed", {
 				strings: ["FrontEnd Developer", "Web Designer", "YouTuber", "Freelancer"],
 				typeSpeed: 90,
 				backSpeed: 50,
@@ -27,7 +27,7 @@ export default function About() {
 				<div className="right-section">
 					<div className="about-content">
 						<h2 className="content-header" data-aos="fade-down" data-aos-delay="350">
-							Who I'm | <span className="Auto2"></span>
+							Who I'm | <span className="about-auto-typed"></span>
 						</h2>
 						<p className="content-description" data-aos="fade-up" data-aos-delay="450" data-offset="0">
 							I am a Front-end developer, I'm here to offer my services as aprofessional web developer with more than 3 years

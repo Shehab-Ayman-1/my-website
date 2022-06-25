@@ -2,7 +2,7 @@
 
 .home-section {
 	@include flex(auto, center);
-	@include linear-background("./Home.png", (rgba(0, 0, 0, 0.1), rgba(220, 20, 60, 0.1)), cover, initial);
+	@include linear-background("./Home.png", (rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), cover, initial);
 	width: 100vw;
 	min-height: 100vh;
 	position: relative;
